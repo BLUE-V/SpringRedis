@@ -50,11 +50,11 @@
          <property name="caches">  
             <set>  
                 <!-- 这里可以配置多个redis -->
-                <!-- <bean class="RedisCache">
+                <!-- <bean class="com.cn.util.RedisCache">  
                      <property name="redisTemplate" ref="redisTemplate" />  
                      <property name="name" value="default"/>  
                 </bean> -->  
-                <bean class="com.spring.demo.util.RedisCache">
+                <bean class="com.cn.util.RedisCache">  
                      <property name="redisTemplate" ref="redisTemplate" />  
                      <property name="name" value="common"/>  
                      <!-- common名称要在类或方法的注解中使用 -->
