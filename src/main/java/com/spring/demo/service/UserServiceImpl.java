@@ -1,7 +1,6 @@
 
 package com.spring.demo.service;
 
-import com.spring.demo.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -9,16 +8,13 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.spring.demo.bean.User;
+import com.spring.demo.dao.UserDao;
 
 /**
  * @类名称： UserServiceImpl
  * @类描述： 
- * @创建人： 1603254
+ * @创建人： zc215
  * @创建时间： 2016-12-2 上午11:10:33
- *
- * @修改人： 1603254
- * @操作时间： 2016-12-2 上午11:10:33
- * @操作原因： 
  * 
  */
 @Service("userService")
