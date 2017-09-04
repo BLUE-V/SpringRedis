@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+">
+
+    <!--下面形式不可以在多个配置文件中重复配置,否则会报Could not resolve placeholder 'redis.maxIdle' in string value "${redis.maxIdle}"错误-->
+    <!--<context:property-placeholder location="classpath:database.properties" />-->
+
+    <!-- 将多个配置文件读取到容器中，交给Spring管理 -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <!-- 这里支持多种寻址方式：classpath和file -->
+               <!-- <value>classpath:/opt/demo/config/demo-db.properties</value>
+                <value>file:/opt/demo/config/demo-mq.properties</value>-->
+                <value>classpath:database.properties</value>
+                <value>classpath:redis-config.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <context:component-scan base-package="com.spring.demo" />
+
+    <!-- 引入同文件夹下的redis属性配置文件 -->
+    <import resource="spring-redis.xml"/>
+
+    <import resource="spring-datasource.xml"/>
+
+</beans>
