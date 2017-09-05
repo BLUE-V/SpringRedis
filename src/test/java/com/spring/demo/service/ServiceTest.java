@@ -19,7 +19,7 @@ public class ServiceTest extends AbstractJUnit4SpringContextTests {
     @Test
     public void add(){
         User user=new User();
-        user.setName("testme123");
+        user.setName("new_testme123");
         System.out.println("---------------------");
         userService.insertSelective(user);
         System.out.println("---------------------");
